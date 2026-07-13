@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Tailwind CSS CDN -->
@@ -48,21 +50,66 @@
         }
     </script>
     <style>
-        .custom-shadow { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); }
-        .glass-panel { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(0, 64, 129, 0.2); }
-        .timeline-line::before {
-            content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 2px; background: #e5e7eb;
+        .custom-shadow {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
-        .skill-item:hover { color: #f97316; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 64, 129, 0.2);
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .skill-item:hover {
+            color: #f97316;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         /* Gallery dot indicator */
-        .dot-active { width: 16px; height: 6px; background: rgba(255,255,255,0.95); border-radius: 9999px; }
-        .dot-inactive { width: 6px; height: 6px; background: rgba(255,255,255,0.45); border-radius: 9999px; }
+        .dot-active {
+            width: 16px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 9999px;
+        }
+
+        .dot-inactive {
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 9999px;
+        }
+
         /* Thumbnail active */
-        .thumb-active { border: 2px solid #004081; box-shadow: 0 0 0 2px rgba(0,64,129,0.2); opacity: 1; }
-        .thumb-inactive { border: 2px solid rgba(209,213,219,0.6); opacity: 0.65; }
-        
+        .thumb-active {
+            border: 2px solid #004081;
+            box-shadow: 0 0 0 2px rgba(0, 64, 129, 0.2);
+            opacity: 1;
+        }
+
+        .thumb-inactive {
+            border: 2px solid rgba(209, 213, 219, 0.6);
+            opacity: 0.65;
+        }
+
         /* ============================================
            3D SCROLL REVEAL — Staggered slide-up
            ============================================ */
@@ -70,29 +117,61 @@
             opacity: 0;
             transform: perspective(1200px) translateY(60px) rotateX(-8deg);
             transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
             transform-origin: center bottom;
             will-change: opacity, transform;
         }
+
         .reveal-3d.reveal-active {
             opacity: 1;
             transform: perspective(1200px) translateY(0) rotateX(0deg);
         }
+
         /* stagger children inside .reveal-stagger */
-        .reveal-stagger > * {
+        .reveal-stagger>* {
             opacity: 0;
             transform: perspective(1200px) translateY(50px) rotateX(-8deg);
             transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
             transform-origin: center bottom;
             will-change: opacity, transform;
         }
-        .reveal-stagger.reveal-active > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: perspective(1200px) translateY(0) rotateX(0deg); }
-        .reveal-stagger.reveal-active > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: perspective(1200px) translateY(0) rotateX(0deg); }
-        .reveal-stagger.reveal-active > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: perspective(1200px) translateY(0) rotateX(0deg); }
-        .reveal-stagger.reveal-active > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: perspective(1200px) translateY(0) rotateX(0deg); }
-        .reveal-stagger.reveal-active > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: perspective(1200px) translateY(0) rotateX(0deg); }
-        .reveal-stagger.reveal-active > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: perspective(1200px) translateY(0) rotateX(0deg); }
+
+        .reveal-stagger.reveal-active>*:nth-child(1) {
+            transition-delay: 0.05s;
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg);
+        }
+
+        .reveal-stagger.reveal-active>*:nth-child(2) {
+            transition-delay: 0.15s;
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg);
+        }
+
+        .reveal-stagger.reveal-active>*:nth-child(3) {
+            transition-delay: 0.25s;
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg);
+        }
+
+        .reveal-stagger.reveal-active>*:nth-child(4) {
+            transition-delay: 0.35s;
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg);
+        }
+
+        .reveal-stagger.reveal-active>*:nth-child(5) {
+            transition-delay: 0.45s;
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg);
+        }
+
+        .reveal-stagger.reveal-active>*:nth-child(6) {
+            transition-delay: 0.55s;
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg);
+        }
 
         /* ============================================
            3D CARD HOVER — interactive tilt + lift
@@ -100,25 +179,30 @@
         .card-3d {
             transform-style: preserve-3d;
             transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-                        box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+                box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             will-change: transform;
             position: relative;
         }
+
         .card-3d:hover {
-            box-shadow: 0 30px 60px rgba(0,64,129,0.18), 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 30px 60px rgba(0, 64, 129, 0.18), 0 8px 20px rgba(0, 0, 0, 0.1);
         }
+
         /* inner shimmer layer */
         .card-3d::after {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 60%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 60%);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;
         }
-        .card-3d:hover::after { opacity: 1; }
+
+        .card-3d:hover::after {
+            opacity: 1;
+        }
 
         /* parallax background blobs */
         .parallax-blob {
@@ -134,29 +218,58 @@
            PROFILE ZOOM-IN/OUT ANIMATION
            ============================================ */
         @keyframes pulse-zoom {
-            0%   { transform: scale(1);    }
-            50%  { transform: scale(1.08); }
-            100% { transform: scale(1);    }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
+
         .zoom-pulse {
             animation: pulse-zoom 6s ease-in-out infinite;
             will-change: transform;
         }
+
         /* Timeline dot pulse */
         @keyframes dot-ping {
-            0%   { box-shadow: 0 0 0 0 rgba(0,64,129,0.5); }
-            70%  { box-shadow: 0 0 0 10px rgba(0,64,129,0); }
-            100% { box-shadow: 0 0 0 0 rgba(0,64,129,0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 64, 129, 0.5);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 64, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 64, 129, 0);
+            }
         }
+
         .timeline-dot-active {
             animation: dot-ping 2s ease-out infinite;
         }
 
         /* stagger up to 8 children for experience section */
-        .reveal-stagger.reveal-active > *:nth-child(7) { transition-delay: 0.65s; opacity: 1; transform: perspective(1200px) translateY(0) rotateX(0deg); }
-        .reveal-stagger.reveal-active > *:nth-child(8) { transition-delay: 0.75s; opacity: 1; transform: perspective(1200px) translateY(0) rotateX(0deg); }
+        .reveal-stagger.reveal-active>*:nth-child(7) {
+            transition-delay: 0.65s;
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg);
+        }
+
+        .reveal-stagger.reveal-active>*:nth-child(8) {
+            transition-delay: 0.75s;
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg);
+        }
     </style>
 </head>
+
 <body class="bg-background text-primary antialiased selection:bg-blue-500 selection:text-white">
 
     <!-- Ambient 3D parallax blobs (fixed bg) -->
@@ -164,15 +277,24 @@
     <div id="blob2" class="parallax-blob w-[500px] h-[500px] bg-[#00c4cc]" style="bottom:-100px;right:-100px;"></div>
 
     <!-- Header -->
-    <header class="fixed top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+    <header
+        class="fixed top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
         <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-            <a href="#top" class="font-bold uppercase tracking-widest text-[15px] hover:text-blue-500 transition-colors">SARAYUT INSOPA</a>
+            <a href="#top"
+                class="font-bold uppercase tracking-widest text-[15px] hover:text-blue-500 transition-colors">SARAYUT
+                INSOPA</a>
             <nav class="hidden md:flex gap-8">
-                <a href="#about" class="text-sm font-medium text-secondary hover:text-primary transition-colors">About Me</a>
-                <a href="#skills" class="text-sm font-medium text-secondary hover:text-primary transition-colors">Skills</a>
-                <a href="#experience" class="text-sm font-medium text-secondary hover:text-primary transition-colors">Experience & Projects</a>
-                <a href="#awards" class="text-sm font-medium text-secondary hover:text-primary transition-colors">Awards</a>
-                <a href="#activities" class="text-sm font-medium text-secondary hover:text-primary transition-colors">Activity</a>
+                <a href="#about" class="text-sm font-medium text-secondary hover:text-primary transition-colors">About
+                    Me</a>
+                <a href="#skills"
+                    class="text-sm font-medium text-secondary hover:text-primary transition-colors">Skills</a>
+                <a href="#experience"
+                    class="text-sm font-medium text-secondary hover:text-primary transition-colors">Experience &
+                    Projects</a>
+                <a href="#awards"
+                    class="text-sm font-medium text-secondary hover:text-primary transition-colors">Awards</a>
+                <a href="#activities"
+                    class="text-sm font-medium text-secondary hover:text-primary transition-colors">Activity</a>
             </nav>
 
         </div>
@@ -182,54 +304,71 @@
     <!-- Hero (3D Style) -->
     <!-- Hero (Minimalist Editorial Style) -->
     <section id="top" class="relative w-full min-h-screen flex flex-col justify-between pt-24 pb-12 bg-[#fafafa]">
-        <div class="mx-auto w-full max-w-[90rem] px-6 md:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-12">
-            
+        <div
+            class="mx-auto w-full max-w-[90rem] px-6 md:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-12">
+
             <!-- Left Text -->
-            <div class="flex-1 flex flex-col gap-6 z-10 w-full lg:max-w-xl tilt-element transition-transform duration-200 ease-out" data-speed="0.3" style="transform-style: preserve-3d;">
+            <div class="flex-1 flex flex-col gap-6 z-10 w-full lg:max-w-xl tilt-element transition-transform duration-200 ease-out"
+                data-speed="0.3" style="transform-style: preserve-3d;">
                 <h1 class="font-sans">
                     <span class="block text-xl md:text-2xl text-secondary mb-4 font-medium">Hey. I'm Sarayut,</span>
-                    <span class="block text-6xl md:text-7xl lg:text-[5.5rem] font-black leading-[0.9] tracking-tighter text-primary uppercase">
+                    <span
+                        class="block text-6xl md:text-7xl lg:text-[5.5rem] font-black leading-[0.9] tracking-tighter text-primary uppercase">
                         A Software
                     </span>
-                    <span class="block text-7xl md:text-[6.5rem] lg:text-[7rem] font-serif italic text-blue-500 leading-[1] mt-2 mb-2">
+                    <span
+                        class="block text-7xl md:text-[6.5rem] lg:text-[7rem] font-serif italic text-blue-500 leading-[1] mt-2 mb-2">
                         & DevOps
                     </span>
-                    <span class="block text-6xl md:text-7xl lg:text-[5.5rem] font-black leading-[0.9] tracking-tighter text-primary uppercase">
+                    <span
+                        class="block text-6xl md:text-7xl lg:text-[5.5rem] font-black leading-[0.9] tracking-tighter text-primary uppercase">
                         Engineer
                     </span>
                 </h1>
                 <p class="text-secondary text-lg leading-relaxed border-l-2 border-blue-500 pl-5 mt-4 max-w-lg">
-                    Transforming ideas into robust software solutions—full-stack development and cloud architecture that is secure, automated, and resilient.
+                    Transforming ideas into robust software solutions—full-stack development and cloud architecture that
+                    is secure, automated, and resilient.
                 </p>
                 <div class="mt-6 relative" id="contact-wrapper">
-                    <button onclick="toggleContact()" class="inline-flex items-center gap-6 bg-primary text-white rounded-full pl-8 pr-2 py-2 hover:bg-blue-600 transition-colors group shadow-lg">
+                    <button onclick="toggleContact()"
+                        class="inline-flex items-center gap-6 bg-primary text-white rounded-full pl-8 pr-2 py-2 hover:bg-blue-600 transition-colors group shadow-lg">
                         <span class="text-sm font-bold tracking-widest uppercase">Contact Me</span>
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary group-hover:text-blue-600 transition-all duration-300">
-                            <i class="fas fa-chevron-down" id="contact-icon" style="transition: transform 0.3s ease;"></i>
+                        <div
+                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary group-hover:text-blue-600 transition-all duration-300">
+                            <i class="fas fa-chevron-down" id="contact-icon"
+                                style="transition: transform 0.3s ease;"></i>
                         </div>
                     </button>
-                    
+
                     <!-- Contact Dropdown -->
-                    <div id="contact-dropdown" class="absolute top-full left-0 mt-4 bg-white rounded-2xl shadow-xl border border-gray-100 p-6 w-[320px] opacity-0 translate-y-4 pointer-events-none transition-all duration-300 z-50">
-                        <h4 class="text-xs font-black text-gray-400 uppercase tracking-widest mb-5">Contact Information</h4>
+                    <div id="contact-dropdown"
+                        class="absolute top-full left-0 mt-4 bg-white rounded-2xl shadow-xl border border-gray-100 p-6 w-[320px] opacity-0 translate-y-4 pointer-events-none transition-all duration-300 z-50">
+                        <h4 class="text-xs font-black text-gray-400 uppercase tracking-widest mb-5">Contact Information
+                        </h4>
                         <div class="flex flex-col gap-5">
                             <div class="flex items-center gap-4 group">
-                                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 shrink-0 shadow-inner group-hover:bg-blue-100 transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 shrink-0 shadow-inner group-hover:bg-blue-100 transition-colors">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <span class="text-sm font-bold text-secondary">093-374-6469</span>
                             </div>
                             <div class="flex items-center gap-4 group">
-                                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 shrink-0 shadow-inner group-hover:bg-blue-100 transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 shrink-0 shadow-inner group-hover:bg-blue-100 transition-colors">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <span class="text-sm font-bold text-secondary break-all">sarayutinsopa764@gmail.com</span>
+                                <span
+                                    class="text-sm font-bold text-secondary break-all">sarayutinsopa764@gmail.com</span>
                             </div>
-                            <a href="https://github.com/SARAYUT1142" target="_blank" class="flex items-center gap-4 group/link hover:bg-gray-50 -mx-3 p-3 rounded-xl transition-colors">
-                                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shrink-0 group-hover/link:bg-blue-600 shadow-md transition-colors">
+                            <a href="https://github.com/SARAYUT1142" target="_blank"
+                                class="flex items-center gap-4 group/link hover:bg-gray-50 -mx-3 p-3 rounded-xl transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shrink-0 group-hover/link:bg-blue-600 shadow-md transition-colors">
                                     <i class="fab fa-github text-lg"></i>
                                 </div>
-                                <span class="text-sm font-bold text-primary group-hover/link:text-blue-600 transition-colors">github.com/SARAYUT1142</span>
+                                <span
+                                    class="text-sm font-bold text-primary group-hover/link:text-blue-600 transition-colors">github.com/SARAYUT1142</span>
                             </a>
                         </div>
                     </div>
@@ -237,51 +376,69 @@
             </div>
 
             <!-- Center Image Capsule -->
-            <div class="flex-1 flex justify-center w-full relative h-[65vh] min-h-[500px] lg:h-[80vh] max-h-[800px] z-0" style="perspective: 1500px;">
-                <div id="tilt-capsule" class="tilt-element w-full max-w-md lg:max-w-lg h-full bg-gray-200 rounded-[500px] overflow-hidden relative shadow-2xl border-8 border-white/50 transition-transform duration-200 ease-out" data-speed="1">
-                    <img src="Photo/Profile.jpg" alt="Sarayut Insopa" class="w-full h-full object-cover zoom-pulse" onerror="this.src='https://placehold.co/600x800/e2e8f0/94a3b8?text=Your+Photo'">
+            <div class="flex-1 flex justify-center w-full relative h-[65vh] min-h-[500px] lg:h-[80vh] max-h-[800px] z-0"
+                style="perspective: 1500px;">
+                <div id="tilt-capsule"
+                    class="tilt-element w-full max-w-md lg:max-w-lg h-full bg-gray-200 rounded-[500px] overflow-hidden relative shadow-2xl border-8 border-white/50 transition-transform duration-200 ease-out"
+                    data-speed="1">
+                    <img src="Photo/Profile.jpg" alt="Sarayut Insopa" class="w-full h-full object-cover zoom-pulse"
+                        onerror="this.src='https://placehold.co/600x800/e2e8f0/94a3b8?text=Your+Photo'">
                     <div class="absolute inset-0 bg-blue-900/5 mix-blend-overlay"></div>
                 </div>
             </div>
 
             <!-- Right Stats -->
-            <div class="flex-1 flex flex-col justify-center gap-12 w-full lg:max-w-[200px] text-left lg:text-right z-10 mt-12 lg:mt-0 tilt-element transition-transform duration-200 ease-out" data-speed="-0.2" style="transform-style: preserve-3d;">
+            <div class="flex-1 flex flex-col justify-center gap-12 w-full lg:max-w-[200px] text-left lg:text-right z-10 mt-12 lg:mt-0 tilt-element transition-transform duration-200 ease-out"
+                data-speed="-0.2" style="transform-style: preserve-3d;">
                 <div class="flex flex-col">
                     <span class="text-5xl md:text-6xl font-black text-primary">2</span>
-                    <span class="text-xs text-secondary mt-2 uppercase tracking-widest font-medium leading-relaxed">Years Experience<br>(Academic & Intern)</span>
+                    <span
+                        class="text-xs text-secondary mt-2 uppercase tracking-widest font-medium leading-relaxed">Years
+                        Experience<br>(Academic & Intern)</span>
                 </div>
                 <div class="flex flex-col">
                     <span class="text-5xl md:text-6xl font-black text-primary">5+</span>
-                    <span class="text-xs text-secondary mt-2 uppercase tracking-widest font-medium leading-relaxed">Major Projects<br>Delivered</span>
+                    <span
+                        class="text-xs text-secondary mt-2 uppercase tracking-widest font-medium leading-relaxed">Major
+                        Projects<br>Delivered</span>
                 </div>
                 <div class="flex flex-col">
                     <span class="text-5xl md:text-6xl font-black text-primary">5</span>
-                    <span class="text-xs text-secondary mt-2 uppercase tracking-widest font-medium leading-relaxed">Awards Won<br>In Competitions</span>
+                    <span
+                        class="text-xs text-secondary mt-2 uppercase tracking-widest font-medium leading-relaxed">Awards
+                        Won<br>In Competitions</span>
                 </div>
                 <div class="flex flex-col">
                     <span class="text-5xl md:text-6xl font-black text-primary">100%</span>
-                    <span class="text-xs text-secondary mt-2 uppercase tracking-widest font-medium leading-relaxed">Passion &<br>Dedication</span>
+                    <span
+                        class="text-xs text-secondary mt-2 uppercase tracking-widest font-medium leading-relaxed">Passion
+                        &<br>Dedication</span>
                 </div>
             </div>
         </div>
 
         <!-- Bottom Strip Features -->
-        <div class="mx-auto w-full max-w-[90rem] px-6 md:px-12 mt-16 pt-12 border-t border-gray-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
+        <div
+            class="mx-auto w-full max-w-[90rem] px-6 md:px-12 mt-16 pt-12 border-t border-gray-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
             <div>
                 <h4 class="text-sm font-black text-primary uppercase tracking-widest mb-3">Full-Stack Development</h4>
-                <p class="text-sm text-secondary leading-relaxed">Robust and scalable web applications tailored to modern standards.</p>
+                <p class="text-sm text-secondary leading-relaxed">Robust and scalable web applications tailored to
+                    modern standards.</p>
             </div>
             <div>
                 <h4 class="text-sm font-black text-primary uppercase tracking-widest mb-3">Cloud Architecture</h4>
-                <p class="text-sm text-secondary leading-relaxed">Designing resilient infrastructure optimized for performance and cost.</p>
+                <p class="text-sm text-secondary leading-relaxed">Designing resilient infrastructure optimized for
+                    performance and cost.</p>
             </div>
             <div>
                 <h4 class="text-sm font-black text-primary uppercase tracking-widest mb-3">CI/CD Automation</h4>
-                <p class="text-sm text-secondary leading-relaxed">End-to-end deployment pipelines for seamless and rapid delivery.</p>
+                <p class="text-sm text-secondary leading-relaxed">End-to-end deployment pipelines for seamless and rapid
+                    delivery.</p>
             </div>
             <div>
                 <h4 class="text-sm font-black text-primary uppercase tracking-widest mb-3">Cybersecurity</h4>
-                <p class="text-sm text-secondary leading-relaxed">Implementing best practices to protect data and ensure system integrity.</p>
+                <p class="text-sm text-secondary leading-relaxed">Implementing best practices to protect data and ensure
+                    system integrity.</p>
             </div>
         </div>
     </section>
@@ -290,21 +447,25 @@
     <section id="about" class="bg-black py-24 text-white">
         <div class="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-16 items-center">
             <div class="md:col-span-5 flex justify-center relative reveal-3d">
-                <img src="Photo/Profile3.jpg" alt="Sarayut Portrait" class="w-full max-w-[340px] rounded-2xl object-cover zoom-pulse" onerror="this.src='https://placehold.co/400x500/1f2937/4b5563?text=Profile+Image'">
+                <img src="Photo/Profile3.jpg" alt="Sarayut Portrait"
+                    class="w-full max-w-[340px] rounded-2xl object-cover zoom-pulse"
+                    onerror="this.src='https://placehold.co/400x500/1f2937/4b5563?text=Profile+Image'">
             </div>
             <div class="md:col-span-7 flex flex-col gap-6 reveal-stagger">
                 <h2 class="text-3xl md:text-4xl font-bold">About Me</h2>
                 <div class="text-gray-300 space-y-4 text-base leading-relaxed">
                     <p>
-                        I am Sarayut Insopa, a Computer Engineering student at Suranaree University of Technology (SUT). 
-                        I am deeply passionate about building scalable software solutions and designing robust cloud infrastructure.
+                        I am Sarayut Insopa, a Computer Engineering student at Suranaree University of Technology (SUT).
+                        I am deeply passionate about building scalable software solutions and designing robust cloud
+                        infrastructure.
                     </p>
                     <p>
-                        I specialize in modern web development, CI/CD automation, and cloud deployment. 
-                        My goal is to leverage my skills in a dynamic software engineering team to deliver impactful, secure products.
+                        I specialize in modern web development, CI/CD automation, and cloud deployment.
+                        My goal is to leverage my skills in a dynamic software engineering team to deliver impactful,
+                        secure products.
                     </p>
                 </div>
-                
+
                 <div class="mt-4">
                     <h4 class="text-xl font-bold text-blue-300 mb-4">Education</h4>
                     <div class="border-l-2 border-blue-300 pl-4">
@@ -312,7 +473,8 @@
                             <div>
                                 <h5 class="text-white font-semibold text-lg">B.Eng. in Computer Engineering</h5>
                                 <p class="text-gray-400 text-sm">Suranaree University of Technology (SUT)</p>
-                                <p class="text-gray-400 text-xs mt-2 max-w-md leading-relaxed">Coursework: Data Structures & Algorithms, Software Engineering, Database Systems, Cloud Computing</p>
+                                <p class="text-gray-400 text-xs mt-2 max-w-md leading-relaxed">Coursework: Data
+                                    Structures & Algorithms, Software Engineering, Database Systems, Cloud Computing</p>
                             </div>
                             <div class="text-blue-300 font-bold text-xl mt-2 sm:mt-0">GPAX 3.40</div>
                         </div>
@@ -320,8 +482,10 @@
                 </div>
 
                 <div class="mt-4 pt-4 border-t border-white/10">
-                    <p class="text-sm text-gray-400 mb-1"><strong class="text-white">Language:</strong> Thai (Native), English (Basic - CEFR A2)</p>
-                    <p class="text-sm text-gray-400"><strong class="text-white">Reference:</strong> Asst. Prof. Dr. Nuntawut Kaoungku | 044-224-559 | nuntawut@sut.ac.th</p>
+                    <p class="text-sm text-gray-400 mb-1"><strong class="text-white">Language:</strong> Thai (Native),
+                        English (Basic - CEFR A2)</p>
+                    <p class="text-sm text-gray-400"><strong class="text-white">Reference:</strong> Asst. Prof. Dr.
+                        Nuntawut Kaoungku | 044-224-559 | nuntawut@sut.ac.th</p>
                 </div>
 
 
@@ -341,14 +505,18 @@
                         <h3 class="font-bold text-lg">Programming</h3>
                     </div>
                     <ul class="space-y-3 text-sm text-secondary font-medium">
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-js text-yellow-500"></i> TypeScript & JavaScript</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-js text-yellow-500"></i>
+                            TypeScript & JavaScript</li>
                         <li class="skill-item flex items-center gap-2"><i class="fas fa-g text-cyan-500"></i> Go</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-python text-blue-500"></i> Python</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-java text-blue-600"></i> Java & C#</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fas fa-database text-gray-500"></i> SQL & C</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-python text-blue-500"></i>
+                            Python</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-java text-blue-600"></i> Java &
+                            C#</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fas fa-database text-gray-500"></i> SQL
+                            & C</li>
                     </ul>
                 </div>
-                
+
                 <!-- Frontend -->
                 <div class="card-3d bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-blue-500/30">
                     <div class="flex items-center gap-3 border-b border-gray-100 pb-4 mb-4">
@@ -357,13 +525,21 @@
                     </div>
                     <ul class="space-y-3 text-sm text-secondary font-medium">
                         <li class="skill-item flex items-center gap-2">
-                            <span class="w-4 h-4 flex items-center justify-center font-bold text-white bg-black rounded-sm text-[10px]">N</span> Next.js
+                            <span
+                                class="w-4 h-4 flex items-center justify-center font-bold text-white bg-black rounded-sm text-[10px]">N</span>
+                            Next.js
                         </li>
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-react text-cyan-400"></i> React</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-html5 text-blue-500"></i> HTML5</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-css3-alt text-blue-500"></i> CSS3</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-react text-cyan-400"></i> React
+                        </li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-html5 text-blue-500"></i> HTML5
+                        </li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-css3-alt text-blue-500"></i>
+                            CSS3</li>
                         <li class="skill-item flex items-center gap-2">
-                            <svg class="w-4 h-4 text-cyan-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg> 
+                            <svg class="w-4 h-4 text-cyan-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+                            </svg>
                             Tailwind CSS
                         </li>
                     </ul>
@@ -376,30 +552,45 @@
                         <h3 class="font-bold text-lg">Backend</h3>
                     </div>
                     <ul class="space-y-3 text-sm text-secondary font-medium">
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-node-js text-green-600"></i> Node.js & Express</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fas fa-microchip text-gray-600"></i> Go Gin & GORM</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-windows text-blue-600"></i> .NET Core</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fas fa-exchange-alt text-gray-500"></i> REST API</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fas fa-key text-yellow-500"></i> JWT</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-node-js text-green-600"></i>
+                            Node.js & Express</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fas fa-microchip text-gray-600"></i> Go
+                            Gin & GORM</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-windows text-blue-600"></i> .NET
+                            Core</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fas fa-exchange-alt text-gray-500"></i>
+                            REST API</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fas fa-key text-yellow-500"></i> JWT
+                        </li>
                     </ul>
                 </div>
 
                 <!-- DB & DevOps -->
-                <div class="card-3d bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-blue-500/30 lg:col-span-2">
+                <div
+                    class="card-3d bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-blue-500/30 lg:col-span-2">
                     <div class="flex items-center gap-3 border-b border-gray-100 pb-4 mb-4">
                         <i class="fas fa-cloud text-blue-500 text-xl"></i>
                         <h3 class="font-bold text-lg">Database & DevOps</h3>
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-6 text-sm text-secondary font-medium">
-                        <div class="skill-item flex items-center gap-2"><i class="fas fa-database text-blue-800"></i> PostgreSQL</div>
-                        <div class="skill-item flex items-center gap-2"><i class="fas fa-database text-blue-500"></i> MySQL & SQLite</div>
-                        <div class="skill-item flex items-center gap-2"><i class="fab fa-microsoft text-blue-500"></i> Azure</div>
-                        <div class="skill-item flex items-center gap-2"><i class="fab fa-docker text-blue-400"></i> Docker</div>
-                        <div class="skill-item flex items-center gap-2"><i class="fas fa-dharmachakra text-blue-600"></i> Kubernetes</div>
-                        <div class="skill-item flex items-center gap-2"><i class="fab fa-jenkins text-red-600"></i> Jenkins</div>
-                        <div class="skill-item flex items-center gap-2"><i class="fas fa-chart-line text-blue-600"></i> Prometheus</div>
-                        <div class="skill-item flex items-center gap-2"><i class="fas fa-chart-pie text-blue-500"></i> Grafana</div>
-                        <div class="skill-item flex items-center gap-2"><i class="fab fa-cloudflare text-blue-400"></i> Cloudflare</div>
+                        <div class="skill-item flex items-center gap-2"><i class="fas fa-database text-blue-800"></i>
+                            PostgreSQL</div>
+                        <div class="skill-item flex items-center gap-2"><i class="fas fa-database text-blue-500"></i>
+                            MySQL & SQLite</div>
+                        <div class="skill-item flex items-center gap-2"><i class="fab fa-microsoft text-blue-500"></i>
+                            Azure</div>
+                        <div class="skill-item flex items-center gap-2"><i class="fab fa-docker text-blue-400"></i>
+                            Docker</div>
+                        <div class="skill-item flex items-center gap-2"><i
+                                class="fas fa-dharmachakra text-blue-600"></i> Kubernetes</div>
+                        <div class="skill-item flex items-center gap-2"><i class="fab fa-jenkins text-red-600"></i>
+                            Jenkins</div>
+                        <div class="skill-item flex items-center gap-2"><i class="fas fa-chart-line text-blue-600"></i>
+                            Prometheus</div>
+                        <div class="skill-item flex items-center gap-2"><i class="fas fa-chart-pie text-blue-500"></i>
+                            Grafana</div>
+                        <div class="skill-item flex items-center gap-2"><i class="fab fa-cloudflare text-blue-400"></i>
+                            Cloudflare</div>
                     </div>
                 </div>
 
@@ -410,11 +601,16 @@
                         <h3 class="font-bold text-lg">Tools & Networking</h3>
                     </div>
                     <ul class="space-y-3 text-sm text-secondary font-medium">
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-git-alt text-blue-600"></i> Git & GitHub</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fab fa-figma text-pink-500"></i> Figma & Miro</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fas fa-rocket text-blue-500"></i> Postman & Swagger</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fas fa-network-wired text-gray-500"></i> Cisco VLAN & Draw.io</li>
-                        <li class="skill-item flex items-center gap-2"><i class="fas fa-microchip text-teal-600"></i> Arduino & ESP32</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-git-alt text-blue-600"></i> Git
+                            & GitHub</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fab fa-figma text-pink-500"></i> Figma
+                            & Miro</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fas fa-rocket text-blue-500"></i>
+                            Postman & Swagger</li>
+                        <li class="skill-item flex items-center gap-2"><i
+                                class="fas fa-network-wired text-gray-500"></i> Cisco VLAN & Draw.io</li>
+                        <li class="skill-item flex items-center gap-2"><i class="fas fa-microchip text-teal-600"></i>
+                            Arduino & ESP32</li>
                     </ul>
                 </div>
             </div>
@@ -430,235 +626,352 @@
                 <div class="sticky top-24">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Work Experience & Projects</h2>
                     <p class="text-secondary leading-relaxed mb-8">
-                        A detailed look at my professional experience, internships, and key academic projects where I applied my skills to build real-world solutions.
+                        A detailed look at my professional experience, internships, and key academic projects where I
+                        applied my skills to build real-world solutions.
                     </p>
                 </div>
             </div>
-            
+
             <!-- Right Timeline -->
             <div class="lg:col-span-8 relative timeline-line pl-10 md:pl-12 reveal-stagger">
-                
+
                 <!-- Timeline Item 1 -->
                 <div class="relative mb-12 group">
-                    <div class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-blue-500 group-hover:scale-125 transition-transform z-10 timeline-dot-active"></div>
-                    <div class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
+                    <div
+                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-blue-500 group-hover:scale-125 transition-transform z-10 timeline-dot-active">
+                    </div>
+                    <div
+                        class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 class="text-xl font-bold text-gray-900">Full-Stack Developer</h3>
-                            <span class="inline-block mt-2 md:mt-0 text-xs font-bold px-3 py-1 bg-blue-100 text-blue-700 rounded-full">Feb 2025 - Present</span>
+                            <span
+                                class="inline-block mt-2 md:mt-0 text-xs font-bold px-3 py-1 bg-blue-100 text-blue-700 rounded-full">Feb
+                                2025 - Present</span>
                         </div>
                         <h4 class="text-blue-500 font-bold mb-4">HR Tech ManPower | Supalai Public Company Limited</h4>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Project:</strong> Developed "HR Tech ManPower" for a leading real estate enterprise.</p>
-                        <p class="text-sm text-gray-600 mb-4"><strong>Impact:</strong> Streamlined HR operations and workforce administration.</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Project:</strong> Developed "HR Tech ManPower" for
+                            a leading real estate enterprise.</p>
+                        <p class="text-sm text-gray-600 mb-4"><strong>Impact:</strong> Streamlined HR operations and
+                            workforce administration.</p>
                         <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-gray-100">
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Next.js</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">TypeScript</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Tailwind CSS</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">.NET</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">PostgreSQL</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Swagger</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Figma</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Stitch</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Clickup</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Next.js</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">TypeScript</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Tailwind
+                                CSS</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">.NET</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">PostgreSQL</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Swagger</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Figma</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Stitch</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Clickup</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Timeline Item 2 -->
                 <div class="relative mb-12 group">
-                    <div class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10"></div>
-                    <div class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
+                    <div
+                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10">
+                    </div>
+                    <div
+                        class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 class="text-xl font-bold text-gray-900">Cloud & DevOps Engineer</h3>
-                            <span class="inline-block mt-2 md:mt-0 text-xs font-bold px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Feb 2026 - May 2026</span>
+                            <span
+                                class="inline-block mt-2 md:mt-0 text-xs font-bold px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Feb
+                                2026 - May 2026</span>
                         </div>
                         <h4 class="text-blue-500 font-bold mb-4">CI/CD Automation | Academic Project</h4>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Project:</strong> Automated end-to-end CI/CD workflows and provisioned standardized Infrastructure as Code (IaC).</p>
-                        <p class="text-sm text-gray-600 mb-4"><strong>Impact:</strong> Deployed scalable services on Kubernetes with real-time performance monitoring.</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Project:</strong> Automated end-to-end CI/CD
+                            workflows and provisioned standardized Infrastructure as Code (IaC).</p>
+                        <p class="text-sm text-gray-600 mb-4"><strong>Impact:</strong> Deployed scalable services on
+                            Kubernetes with real-time performance monitoring.</p>
                         <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-gray-100">
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Jenkins</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Terraform</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Ansible</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Kubernetes</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Prometheus</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Grafana</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Docker</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Jenkins</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Terraform</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Ansible</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Kubernetes</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Prometheus</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Grafana</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Docker</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Timeline Item 3 -->
                 <div class="relative mb-12 group">
-                    <div class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10"></div>
-                    <div class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
+                    <div
+                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10">
+                    </div>
+                    <div
+                        class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 class="text-xl font-bold text-gray-900">Full-Stack Developer</h3>
-                            <span class="inline-block mt-2 md:mt-0 text-xs font-bold px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Oct 2025 - Feb 2026</span>
+                            <span
+                                class="inline-block mt-2 md:mt-0 text-xs font-bold px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Oct
+                                2025 - Feb 2026</span>
                         </div>
                         <h4 class="text-blue-500 font-bold mb-4">Management System | Academic Project</h4>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Project:</strong> Developed a full-stack application integrated with a secure, structured RESTful API utilizing DTOs and middlewares.</p>
-                        <p class="text-sm text-gray-600 mb-4"><strong>Impact:</strong> Optimized request routing and enhanced system security using Nginx as a reverse proxy.</p>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Project:</strong> Developed a full-stack
+                            application integrated with a secure, structured RESTful API utilizing DTOs and middlewares.
+                        </p>
+                        <p class="text-sm text-gray-600 mb-4"><strong>Impact:</strong> Optimized request routing and
+                            enhanced system security using Nginx as a reverse proxy.</p>
                         <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-gray-100">
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Next.js</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Tailwind CSS</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">TypeScript</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Go (Gin)</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">JWT</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">PostgreSQL</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Docker Compose</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Nginx</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Azure</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Postman</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Figma</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Next.js</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Tailwind
+                                CSS</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">TypeScript</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Go
+                                (Gin)</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">JWT</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">PostgreSQL</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Docker
+                                Compose</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Nginx</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Azure</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Postman</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Figma</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Timeline Item 4 -->
                 <div class="relative group">
-                    <div class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10"></div>
-                    <div class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
+                    <div
+                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10">
+                    </div>
+                    <div
+                        class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 class="text-xl font-bold text-gray-900">Frontend Developer</h3>
-                            <span class="inline-block mt-2 md:mt-0 text-xs font-bold px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Mar 2025 - Jul 2025</span>
+                            <span
+                                class="inline-block mt-2 md:mt-0 text-xs font-bold px-3 py-1 bg-gray-100 text-gray-700 rounded-full">Mar
+                                2025 - Jul 2025</span>
                         </div>
-                        <h4 class="text-blue-500 font-bold mb-4">Analytics Dashboard (Metropolis Project) | Solution Mania</h4>
-                        <p class="text-sm text-gray-600 mb-2"><strong>Project:</strong> Built a high-performance UI integrated with real-time CCTV streaming (hls.js), interactive Google Maps, and data dashboards (recharts).</p>
-                        <p class="text-sm text-gray-600 mb-4"><strong>Impact:</strong> Containerized the application with Docker to ensure scalable and efficient cloud deployment.</p>
+                        <h4 class="text-blue-500 font-bold mb-4">Analytics Dashboard (Metropolis Project) | Solution
+                            Mania</h4>
+                        <p class="text-sm text-gray-600 mb-2"><strong>Project:</strong> Built a high-performance UI
+                            integrated with real-time CCTV streaming (hls.js), interactive Google Maps, and data
+                            dashboards (recharts).</p>
+                        <p class="text-sm text-gray-600 mb-4"><strong>Impact:</strong> Containerized the application
+                            with Docker to ensure scalable and efficient cloud deployment.</p>
                         <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-gray-100">
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Next.js</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Tailwind CSS</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">TypeScript</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Google Maps API</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Postman</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Notion</span>
-                            <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Docker</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Next.js</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Tailwind
+                                CSS</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">TypeScript</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Google
+                                Maps API</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Postman</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Notion</span>
+                            <span
+                                class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">Docker</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>    <!-- Awards Section -->
+    </section> <!-- Awards Section -->
     <section id="awards" class="py-24 bg-gray-50 overflow-hidden">
         <div class="mx-auto max-w-5xl px-6 reveal-3d">
             <h2 class="text-3xl md:text-4xl font-bold mb-16 text-primary">Awards &amp; Competitions</h2>
-            <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-12 lg:gap-20">
 
                 <!-- Award 1: image LEFT, text RIGHT -->
-                <div class="flex flex-col lg:flex-row gap-10 items-start">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 lg:items-start">
                     <!-- Gallery -->
                     <div class="w-full lg:w-1/2 shrink-0">
                         <div class="relative rounded-2xl overflow-hidden bg-gray-100" id="gal-c2c">
                             <!-- Main image -->
-                            <img id="main-c2c" src="Photo/c2c-hackathon.jpg" alt="C2C Main" class="w-full h-72 object-cover zoom-pulse">
+                            <img id="main-c2c" src="Photo/c2c-hackathon.jpg" alt="C2C Main"
+                                class="w-full h-56 md:h-72 object-cover zoom-pulse">
                             <!-- Counter -->
-                            <span id="cnt-c2c" class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1 / 4</span>
+                            <span id="cnt-c2c"
+                                class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1
+                                / 4</span>
                         </div>
                         <!-- Thumbnails -->
                         <div class="flex gap-2 mt-3 overflow-x-auto hide-scrollbar">
-                            <img src="Photo/c2c-hackathon.jpg" onclick="switchImg('c2c',this,0,4)" class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/C2CTech/c2c_1.jpg" onclick="switchImg('c2c',this,1,4)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/C2CTech/c2c_2.jpg" onclick="switchImg('c2c',this,2,4)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/C2CTech/c2c_3.jpg" onclick="switchImg('c2c',this,3,4)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/c2c-hackathon.jpg" onclick="switchImg('c2c',this,0,4)"
+                                class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/C2CTech/c2c_1.jpg" onclick="switchImg('c2c',this,1,4)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/C2CTech/c2c_2.jpg" onclick="switchImg('c2c',this,2,4)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/C2CTech/c2c_3.jpg" onclick="switchImg('c2c',this,3,4)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
                         </div>
                     </div>
                     <!-- Text -->
-                    <div class="flex-1 reveal-stagger">
-                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🏆 1st Place</span>
+                    <div class="flex-1 w-full reveal-stagger">
+                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🏆
+                            1st Place</span>
                         <h3 class="text-2xl font-bold text-primary mb-1">C2C Tech X Hackathon</h3>
                         <p class="text-sm text-[#004081] font-semibold mb-4">Supalai · THB 40,000 Prize · 20+ teams</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Secured 1st place and awarded the grand prize for developing an innovative technical solution against 20+ competing teams.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Secured 1st place and awarded the grand prize
+                            for developing an innovative technical solution against 20+ competing teams.</p>
                     </div>
                 </div>
 
                 <!-- Award 2: text LEFT, image RIGHT -->
-                <div class="flex flex-col lg:flex-row-reverse gap-10 items-start">
+                <div class="flex flex-col lg:flex-row-reverse gap-8 lg:gap-10 lg:items-start">
                     <div class="w-full lg:w-1/2 shrink-0">
                         <div class="relative rounded-2xl overflow-hidden bg-gray-100">
-                            <img id="main-p1" src="Photo/p1-competition.JPG" alt="P1 Main" class="w-full h-72 object-cover zoom-pulse">
-                            <span id="cnt-p1" class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1 / 5</span>
+                            <img id="main-p1" src="Photo/p1-competition.JPG" alt="P1 Main"
+                                class="w-full h-56 md:h-72 object-cover zoom-pulse">
+                            <span id="cnt-p1"
+                                class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1
+                                / 5</span>
                         </div>
                         <div class="flex gap-2 mt-3 overflow-x-auto hide-scrollbar">
-                            <img src="Photo/p1-competition.JPG" onclick="switchImg('p1',this,0,5)" class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/P1/P1_1.jpg" onclick="switchImg('p1',this,1,5)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/P1/P1_2.jpg" onclick="switchImg('p1',this,2,5)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/P1/P1_3.jpg" onclick="switchImg('p1',this,3,5)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/P1/P1_4.jpg" onclick="switchImg('p1',this,4,5)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/p1-competition.JPG" onclick="switchImg('p1',this,0,5)"
+                                class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/P1/P1_1.jpg" onclick="switchImg('p1',this,1,5)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/P1/P1_2.jpg" onclick="switchImg('p1',this,2,5)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/P1/P1_3.jpg" onclick="switchImg('p1',this,3,5)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/P1/P1_4.jpg" onclick="switchImg('p1',this,4,5)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
                         </div>
                     </div>
-                    <div class="flex-1 reveal-stagger">
-                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🏆 1st Place</span>
+                    <div class="flex-1 w-full reveal-stagger">
+                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🏆
+                            1st Place</span>
                         <h3 class="text-2xl font-bold text-primary mb-1">P1 Startup Innovation</h3>
                         <div class="flex items-center flex-wrap gap-2 mb-4">
                             <p class="text-sm text-[#004081] font-semibold">THB 50,000 Prize</p>
                             <span class="text-gray-300 text-sm hidden sm:inline">|</span>
-                            <a href="https://www.facebook.com/photo/?fbid=712018161499399&set=a.209678295066724" target="_blank" class="text-sm font-medium text-blue-500 hover:text-blue-700 hover:underline transition-colors flex items-center gap-1.5 bg-blue-50 px-2 py-0.5 rounded">
+                            <a href="https://www.facebook.com/photo/?fbid=712018161499399&set=a.209678295066724"
+                                target="_blank"
+                                class="text-sm font-medium text-blue-500 hover:text-blue-700 hover:underline transition-colors flex items-center gap-1.5 bg-blue-50 px-2 py-0.5 rounded">
                                 <i class="fas fa-external-link-alt text-[10px]"></i> Reference
                             </a>
                         </div>
-                        <p class="text-sm text-gray-600 leading-relaxed">Achieved 1st place as <strong>Team Async</strong> in a startup pitch competition aimed at securing seed funding for new ventures.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Achieved 1st place as <strong>Team
+                                Async</strong> in a startup pitch competition aimed at securing seed funding for new
+                            ventures.</p>
                     </div>
                 </div>
 
                 <!-- Award 3: image LEFT, text RIGHT -->
-                <div class="flex flex-col lg:flex-row gap-10 items-start">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 lg:items-start">
                     <div class="w-full lg:w-1/2 shrink-0">
                         <div class="relative rounded-2xl overflow-hidden bg-gray-100">
-                            <img id="main-ai" src="Photo/ai-prompt.jpg" alt="AI Prompt Main" class="w-full h-72 object-cover zoom-pulse">
-                            <span id="cnt-ai" class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1 / 3</span>
+                            <img id="main-ai" src="Photo/ai-prompt.jpg" alt="AI Prompt Main"
+                                class="w-full h-56 md:h-72 object-cover zoom-pulse">
+                            <span id="cnt-ai"
+                                class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1
+                                / 3</span>
                         </div>
                         <div class="flex gap-2 mt-3 overflow-x-auto hide-scrollbar">
-                            <img src="Photo/ai-prompt.jpg" onclick="switchImg('ai',this,0,3)" class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/AIPrompt/AI_1.jpg" onclick="switchImg('ai',this,1,3)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/AIPrompt/AI_2.jpg" onclick="switchImg('ai',this,2,3)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/ai-prompt.jpg" onclick="switchImg('ai',this,0,3)"
+                                class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/AIPrompt/AI_1.jpg" onclick="switchImg('ai',this,1,3)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/AIPrompt/AI_2.jpg" onclick="switchImg('ai',this,2,3)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
                         </div>
                     </div>
-                    <div class="flex-1 reveal-stagger">
-                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🏆 1st Place</span>
+                    <div class="flex-1 w-full reveal-stagger">
+                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🏆
+                            1st Place</span>
                         <h3 class="text-2xl font-bold text-primary mb-1">AI Prompt Master</h3>
                         <p class="text-sm text-[#004081] font-semibold mb-4">THB 3,000 Prize</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Showcased prompt engineering expertise and creative application of AI models in a competitive setting.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Showcased prompt engineering expertise and
+                            creative application of AI models in a competitive setting.</p>
                     </div>
                 </div>
 
                 <!-- Award 4: text LEFT, image RIGHT -->
-                <div class="flex flex-col lg:flex-row-reverse gap-10 items-start">
+                <div class="flex flex-col lg:flex-row-reverse gap-8 lg:gap-10 lg:items-start">
                     <div class="w-full lg:w-1/2 shrink-0">
                         <div class="relative rounded-2xl overflow-hidden bg-gray-100">
-                            <img id="main-r2m" src="Photo/r2m-competition.JPG" alt="R2M Main" class="w-full h-72 object-cover zoom-pulse">
-                            <span id="cnt-r2m" class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1 / 3</span>
+                            <img id="main-r2m" src="Photo/r2m-competition.JPG" alt="R2M Main"
+                                class="w-full h-56 md:h-72 object-cover zoom-pulse">
+                            <span id="cnt-r2m"
+                                class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1
+                                / 3</span>
                         </div>
                         <div class="flex gap-2 mt-3 overflow-x-auto hide-scrollbar">
-                            <img src="Photo/r2m-competition.JPG" onclick="switchImg('r2m',this,0,3)" class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/ENGiResearchtoMarket/r2m_1.jpg" onclick="switchImg('r2m',this,1,3)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/ENGiResearchtoMarket/r2m_2.jpg" onclick="switchImg('r2m',this,2,3)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/r2m-competition.JPG" onclick="switchImg('r2m',this,0,3)"
+                                class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/ENGiResearchtoMarket/r2m_1.jpg" onclick="switchImg('r2m',this,1,3)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/ENGiResearchtoMarket/r2m_2.jpg" onclick="switchImg('r2m',this,2,3)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
                         </div>
                     </div>
-                    <div class="flex-1 reveal-stagger">
-                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">🥉 3rd Place</span>
+                    <div class="flex-1 w-full reveal-stagger">
+                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">🥉 3rd
+                            Place</span>
                         <h3 class="text-2xl font-bold text-primary mb-1">ENGi Research to Market</h3>
                         <p class="text-sm text-gray-500 font-semibold mb-4">THB 4,000 Prize</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Awarded 3rd place in a university-level startup pitch competition translating research into a viable business.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Awarded 3rd place in a university-level startup
+                            pitch competition translating research into a viable business.</p>
                     </div>
                 </div>
 
                 <!-- Award 5: image LEFT, text RIGHT -->
-                <div class="flex flex-col lg:flex-row gap-10 items-start">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 lg:items-start">
                     <div class="w-full lg:w-1/2 shrink-0">
                         <div class="relative rounded-2xl overflow-hidden bg-gray-100">
-                            <img id="main-cyber" src="Photo/cyber-warrior.JPG" alt="Cyber Warrior Main" class="w-full h-72 object-cover zoom-pulse">
-                            <span id="cnt-cyber" class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1 / 3</span>
+                            <img id="main-cyber" src="Photo/cyber-warrior.JPG" alt="Cyber Warrior Main"
+                                class="w-full h-56 md:h-72 object-cover zoom-pulse">
+                            <span id="cnt-cyber"
+                                class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1
+                                / 3</span>
                         </div>
                         <div class="flex gap-2 mt-3 overflow-x-auto hide-scrollbar">
-                            <img src="Photo/cyber-warrior.JPG" onclick="switchImg('cyber',this,0,3)" class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/CyberWarrior/cyber_1.jpg" onclick="switchImg('cyber',this,1,3)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
-                            <img src="Photo/CyberWarrior/cyber_2.jpg" onclick="switchImg('cyber',this,2,3)" class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/cyber-warrior.JPG" onclick="switchImg('cyber',this,0,3)"
+                                class="thumb-active w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/CyberWarrior/cyber_1.jpg" onclick="switchImg('cyber',this,1,3)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
+                            <img src="Photo/CyberWarrior/cyber_2.jpg" onclick="switchImg('cyber',this,2,3)"
+                                class="thumb-inactive w-16 h-16 object-cover rounded-lg cursor-pointer shrink-0 transition-all">
                         </div>
                     </div>
-                    <div class="flex-1 reveal-stagger">
-                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🛡️ Participant</span>
+                    <div class="flex-1 w-full reveal-stagger">
+                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🛡️
+                            Participant</span>
                         <h3 class="text-2xl font-bold text-primary mb-1">Cyber Warrior Hackathon</h3>
                         <p class="text-sm text-[#004081] font-semibold mb-4">2025 · IMPACT Muang Thong Thani</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Competed in a highly competitive national-level cybersecurity challenge focusing on threat analysis and defense strategies.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Competed in a highly competitive national-level
+                            cybersecurity challenge focusing on threat analysis and defense strategies.</p>
                     </div>
                 </div>
 
@@ -676,44 +989,68 @@
                 <div class="card-3d bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
                     <div class="relative h-96 bg-gray-100 overflow-hidden" id="act-vp">
                         <!-- Images stacked absolutely -->
-                        <img src="Photo/VicePresident/VP_1.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-100 transition-opacity duration-300">
-                        <img src="Photo/VicePresident/VP_2.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
-                        <img src="Photo/VicePresident/VP_3.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
-                        <img src="Photo/VicePresident/VP_4.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
-                        <img src="Photo/VicePresident/VP_5.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
-                        <img src="Photo/VicePresident/VP_6.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
-                        <img src="Photo/VicePresident/VP_7.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
-                        <img src="Photo/VicePresident/VP_8.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/VicePresident/VP_1.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-100 transition-opacity duration-300">
+                        <img src="Photo/VicePresident/VP_2.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/VicePresident/VP_3.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/VicePresident/VP_4.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/VicePresident/VP_5.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/VicePresident/VP_6.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/VicePresident/VP_7.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/VicePresident/VP_8.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
                         <!-- Dots -->
                         <div id="act-vp-dots" class="absolute top-3 right-3 flex gap-1.5 items-center z-10"></div>
                         <!-- Arrows -->
-                        <button onclick="prevSlide('act-vp',8)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition z-10 text-xs"><i class="fas fa-chevron-left"></i></button>
-                        <button onclick="nextSlide('act-vp',8)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition z-10 text-xs"><i class="fas fa-chevron-right"></i></button>
+                        <button onclick="prevSlide('act-vp',8)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition z-10 text-xs"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <button onclick="nextSlide('act-vp',8)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition z-10 text-xs"><i
+                                class="fas fa-chevron-right"></i></button>
                     </div>
                     <div class="p-6 reveal-stagger">
                         <h3 class="font-bold text-xl mb-1 text-primary">Vice President</h3>
                         <p class="text-[#00c4cc] font-semibold text-sm mb-3">Student Committee, Computer Engineering</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Led and represented the student body. Successfully organized and managed the departmental Graduation Ceremony, coordinating logistics and managing teams.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Led and represented the student body.
+                            Successfully organized and managed the departmental Graduation Ceremony, coordinating
+                            logistics and managing teams.</p>
                     </div>
                 </div>
 
                 <!-- Activity 2: MC -->
                 <div class="card-3d bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
                     <div class="relative h-96 bg-gray-100 overflow-hidden" id="act-mc">
-                        <img src="Photo/mc-event-host.JPG" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-100 transition-opacity duration-300">
-                        <img src="Photo/MC/mc_1.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
-                        <img src="Photo/MC/mc_2.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
-                        <img src="Photo/MC/mc_3.jpg" class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/mc-event-host.JPG"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-100 transition-opacity duration-300">
+                        <img src="Photo/MC/mc_1.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/MC/mc_2.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
+                        <img src="Photo/MC/mc_3.jpg"
+                            class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-0 transition-opacity duration-300">
                         <!-- Dots -->
                         <div id="act-mc-dots" class="absolute top-3 right-3 flex gap-1.5 items-center z-10"></div>
                         <!-- Arrows -->
-                        <button onclick="prevSlide('act-mc',4)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition z-10 text-xs"><i class="fas fa-chevron-left"></i></button>
-                        <button onclick="nextSlide('act-mc',4)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition z-10 text-xs"><i class="fas fa-chevron-right"></i></button>
+                        <button onclick="prevSlide('act-mc',4)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition z-10 text-xs"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <button onclick="nextSlide('act-mc',4)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition z-10 text-xs"><i
+                                class="fas fa-chevron-right"></i></button>
                     </div>
                     <div class="p-6 reveal-stagger">
                         <h3 class="font-bold text-xl mb-1 text-primary">MC &amp; Event Host</h3>
                         <p class="text-[#00c4cc] font-semibold text-sm mb-3">University Events</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Hosted key departmental events including the "Computer Engineering Freshman Orientation" and "C Camp". Demonstrated strong public speaking and crowd engagement.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Hosted key departmental events including the
+                            "Computer Engineering Freshman Orientation" and "C Camp". Demonstrated strong public
+                            speaking and crowd engagement.</p>
                     </div>
                 </div>
 
@@ -727,24 +1064,29 @@
             <h2 class="text-2xl font-bold text-white mb-6 uppercase tracking-widest">Sarayut Insopa</h2>
             <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
                 <div class="flex items-center gap-3 text-gray-300">
-                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
+                    <div
+                        class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <span class="text-sm font-medium">093-374-6469</span>
                 </div>
-                
+
                 <div class="flex items-center gap-3 text-gray-300">
-                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
+                    <div
+                        class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <span class="text-sm font-medium">sarayutinsopa764@gmail.com</span>
                 </div>
-                
-                <a href="https://github.com/SARAYUT1142" target="_blank" class="flex items-center gap-3 text-gray-300 hover:text-white group transition-colors">
-                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-blue-500 transition-colors">
+
+                <a href="https://github.com/SARAYUT1142" target="_blank"
+                    class="flex items-center gap-3 text-gray-300 hover:text-white group transition-colors">
+                    <div
+                        class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-blue-500 transition-colors">
                         <i class="fab fa-github text-lg"></i>
                     </div>
-                    <span class="text-sm font-medium group-hover:text-blue-400 transition-colors">github.com/SARAYUT1142</span>
+                    <span
+                        class="text-sm font-medium group-hover:text-blue-400 transition-colors">github.com/SARAYUT1142</span>
                 </a>
             </div>
             <p class="text-gray-500 text-sm">&copy; 2026 Sarayut Insopa. All rights reserved.</p>
@@ -768,7 +1110,7 @@
         }
 
         // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const wrapper = document.getElementById('contact-wrapper');
             const dropdown = document.getElementById('contact-dropdown');
             const icon = document.getElementById('contact-icon');
@@ -845,10 +1187,10 @@
         }
 
         // Touch swipe support for Activity
-        document.querySelectorAll('#act-vp, #act-mc').forEach(function(el) {
+        document.querySelectorAll('#act-vp, #act-mc').forEach(function (el) {
             let tx = 0;
-            el.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
-            el.addEventListener('touchend', function(e) {
+            el.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+            el.addEventListener('touchend', function (e) {
                 const dx = e.changedTouches[0].clientX - tx;
                 const id = el.id;
                 const total = id === 'act-vp' ? 8 : 4;
@@ -880,8 +1222,15 @@
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-active');
+                    // Add a small delay so fast scrolling doesn't trigger heavy animations
+                    entry.target.revealTimeout = setTimeout(() => {
+                        entry.target.classList.add('reveal-active');
+                    }, 100);
                 } else {
+                    // Clear timeout if it leaves viewport quickly
+                    if (entry.target.revealTimeout) {
+                        clearTimeout(entry.target.revealTimeout);
+                    }
                     entry.target.classList.remove('reveal-active');
                 }
             });
@@ -890,27 +1239,27 @@
 
         // ── 3D Card Tilt on mouse move ─────────────────────────
         document.querySelectorAll('.card-3d').forEach(card => {
-            card.addEventListener('mousemove', function(e) {
+            card.addEventListener('mousemove', function (e) {
                 const rect = card.getBoundingClientRect();
                 const cx = rect.left + rect.width / 2;
                 const cy = rect.top + rect.height / 2;
                 const dx = (e.clientX - cx) / (rect.width / 2);
                 const dy = (e.clientY - cy) / (rect.height / 2);
                 const rotX = -dy * 8;   // max 8deg tilt
-                const rotY =  dx * 8;
+                const rotY = dx * 8;
                 card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.025)`;
             });
-            card.addEventListener('mouseleave', function() {
+            card.addEventListener('mouseleave', function () {
                 card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
                 card.style.transition = 'transform 0.5s cubic-bezier(0.23,1,0.32,1), box-shadow 0.5s cubic-bezier(0.23,1,0.32,1)';
             });
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 card.style.transition = 'transform 0.15s ease, box-shadow 0.15s ease';
             });
         });
 
         // ── Hero tilt & Parallax blobs on mouse move ───────────
-        document.addEventListener('mousemove', function(e) {
+        document.addEventListener('mousemove', function (e) {
             const x = (window.innerWidth / 2 - e.clientX) / 40;
             const y = (window.innerHeight / 2 - e.clientY) / 40;
 
@@ -926,7 +1275,7 @@
             });
 
             // Parallax blobs follow cursor slowly
-            const nx = (e.clientX / window.innerWidth  - 0.5) * 60;
+            const nx = (e.clientX / window.innerWidth - 0.5) * 60;
             const ny = (e.clientY / window.innerHeight - 0.5) * 60;
             const b1 = document.getElementById('blob1');
             const b2 = document.getElementById('blob2');
@@ -935,7 +1284,5 @@
         });
     </script>
 </body>
+
 </html>
-
-
-
