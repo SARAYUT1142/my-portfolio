@@ -116,8 +116,6 @@
         .reveal-3d {
             opacity: 0;
             transform: perspective(1200px) translateY(60px) rotateX(-8deg);
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
             transform-origin: center bottom;
             will-change: opacity, transform;
         }
@@ -125,16 +123,21 @@
         .reveal-3d.reveal-active {
             opacity: 1;
             transform: perspective(1200px) translateY(0) rotateX(0deg);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         /* stagger children inside .reveal-stagger */
         .reveal-stagger>* {
             opacity: 0;
             transform: perspective(1200px) translateY(50px) rotateX(-8deg);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
             transform-origin: center bottom;
             will-change: opacity, transform;
+        }
+
+        .reveal-stagger.reveal-active>* {
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .reveal-stagger.reveal-active>*:nth-child(1) {
@@ -444,7 +447,7 @@
     </section>
 
     <!-- About Me -->
-    <section id="about" class="bg-black py-24 text-white">
+    <section id="about" class="bg-black py-32 md:py-40 text-white">
         <div class="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-16 items-center">
             <div class="md:col-span-5 flex justify-center relative reveal-3d">
                 <img src="Photo/Profile3.jpg" alt="Sarayut Portrait"
@@ -494,9 +497,9 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="py-24 bg-gray-50 border-b border-gray-200">
-        <div class="mx-auto max-w-7xl px-6 reveal-3d">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-primary">Technical Skills</h2>
+    <section id="skills" class="py-32 md:py-40 bg-gray-50 border-b border-gray-200">
+        <div class="mx-auto max-w-7xl px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-primary reveal-3d">Technical Skills</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
                 <!-- Programming -->
                 <div class="card-3d bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-blue-500/30">
@@ -619,11 +622,11 @@
     </section>
 
     <!-- Experience & Projects -->
-    <section id="experience" class="py-24">
-        <div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-16 reveal-3d">
+    <section id="experience" class="py-32 md:py-40">
+        <div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-16">
             <!-- Left Header -->
             <div class="lg:col-span-4">
-                <div class="sticky top-24">
+                <div class="sticky top-24 reveal-3d">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Work Experience & Projects</h2>
                     <p class="text-secondary leading-relaxed mb-8">
                         A detailed look at my professional experience, internships, and key academic projects where I
@@ -805,9 +808,9 @@
             </div>
         </div>
     </section> <!-- Awards Section -->
-    <section id="awards" class="py-24 bg-gray-50 overflow-hidden">
-        <div class="mx-auto max-w-5xl px-6 reveal-3d">
-            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-primary">Awards &amp; Competitions</h2>
+    <section id="awards" class="py-32 md:py-40 bg-gray-50 overflow-hidden">
+        <div class="mx-auto max-w-5xl px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-primary reveal-3d">Awards &amp; Competitions</h2>
             <div class="flex flex-col gap-12 lg:gap-20">
 
                 <!-- Award 1: image LEFT, text RIGHT -->
@@ -980,9 +983,9 @@
     </section>
 
     <!-- Activity -->
-    <section id="activities" class="py-24 border-t border-gray-200 overflow-hidden">
-        <div class="mx-auto max-w-7xl px-6 reveal-3d">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-primary">Activity</h2>
+    <section id="activities" class="py-32 md:py-40 border-t border-gray-200 overflow-hidden">
+        <div class="mx-auto max-w-7xl px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-primary reveal-3d">Activity</h2>
             <div class="grid md:grid-cols-2 gap-8 reveal-stagger">
 
                 <!-- Activity 1: Vice President -->
