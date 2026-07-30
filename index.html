@@ -187,7 +187,7 @@
             position: relative;
         }
 
-        .card-3d:hover {
+        .card-3d:not(.no-tilt):hover {
             box-shadow: 0 30px 60px rgba(0, 64, 129, 0.18), 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -203,7 +203,7 @@
             pointer-events: none;
         }
 
-        .card-3d:hover::after {
+        .card-3d:not(.no-tilt):hover::after {
             opacity: 1;
         }
 
@@ -641,10 +641,10 @@
                 <!-- Timeline Item 1 -->
                 <div class="relative mb-12 group">
                     <div
-                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-blue-500 group-hover:scale-125 transition-transform z-10 timeline-dot-active">
+                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-blue-500 z-10 timeline-dot-active">
                     </div>
                     <div
-                        class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
+                        class="card-3d no-tilt bg-white p-6 rounded-2xl shadow-sm border border-gray-100 reveal-stagger">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 class="text-xl font-bold text-gray-900">Full-Stack Developer</h3>
                             <span
@@ -691,10 +691,10 @@
                 <!-- Timeline Item 2 -->
                 <div class="relative mb-12 group">
                     <div
-                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10">
+                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 z-10">
                     </div>
                     <div
-                        class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
+                        class="card-3d no-tilt bg-white p-6 rounded-2xl shadow-sm border border-gray-100 reveal-stagger">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 class="text-xl font-bold text-gray-900">Cloud & DevOps Engineer</h3>
                             <span
@@ -747,10 +747,10 @@
                 <!-- Timeline Item 3 -->
                 <div class="relative mb-12 group">
                     <div
-                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10">
+                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 z-10">
                     </div>
                     <div
-                        class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
+                        class="card-3d no-tilt bg-white p-6 rounded-2xl shadow-sm border border-gray-100 reveal-stagger">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 class="text-xl font-bold text-gray-900">Full-Stack Developer</h3>
                             <span
@@ -812,10 +812,10 @@
                 <!-- Timeline Item 4 -->
                 <div class="relative group">
                     <div
-                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 group-hover:border-blue-500 group-hover:scale-125 transition-transform z-10">
+                        class="absolute -left-12 mt-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300 z-10">
                     </div>
                     <div
-                        class="card-3d bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/50 reveal-stagger">
+                        class="card-3d no-tilt bg-white p-6 rounded-2xl shadow-sm border border-gray-100 reveal-stagger">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 class="text-xl font-bold text-gray-900">Frontend Developer</h3>
                             <span
@@ -1052,7 +1052,7 @@
             <div class="grid md:grid-cols-2 gap-8 reveal-stagger">
 
                 <!-- Activity 1: Vice President -->
-                <div class="card-3d bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                <div class="card-3d no-tilt bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
                     <div class="relative h-96 bg-gray-100 overflow-hidden" id="act-vp">
                         <!-- Images stacked absolutely -->
                         <img src="Photo/VicePresident/VP_1.jpg"
@@ -1091,7 +1091,7 @@
                 </div>
 
                 <!-- Activity 2: MC -->
-                <div class="card-3d bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                <div class="card-3d no-tilt bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
                     <div class="relative h-96 bg-gray-100 overflow-hidden" id="act-mc">
                         <img src="Photo/mc-event-host.JPG"
                             class="act-slide absolute inset-0 w-full h-full object-cover zoom-pulse opacity-100 transition-opacity duration-300">
@@ -1332,7 +1332,7 @@
         document.querySelectorAll('.reveal-3d, .reveal-stagger').forEach(el => revealObserver.observe(el));
 
         // ── 3D Card Tilt on mouse move ─────────────────────────
-        document.querySelectorAll('.card-3d').forEach(card => {
+        document.querySelectorAll('.card-3d:not(.no-tilt)').forEach(card => {
             card.addEventListener('mousemove', function (e) {
                 const rect = card.getBoundingClientRect();
                 const cx = rect.left + rect.width / 2;
