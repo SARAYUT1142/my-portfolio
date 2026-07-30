@@ -958,7 +958,7 @@
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 lg:items-start">
                     <div class="w-full lg:w-1/2 shrink-0">
                         <div class="relative rounded-2xl overflow-hidden bg-gray-100">
-                            <img id="main-ai" src="Photo/ai-prompt.jpg" alt="AI Prompt Main"
+                            <img id="main-ai" src="Photo/ai-prompt.jpg" alt="Battle of AI Main"
                                 class="w-full h-56 md:h-72 object-cover zoom-pulse">
                             <span id="cnt-ai"
                                 class="absolute top-3 right-3 bg-black/50 text-white text-xs font-semibold px-2.5 py-1 rounded-full">1
@@ -976,7 +976,7 @@
                     <div class="flex-1 w-full reveal-stagger">
                         <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#00c4cc] mb-3">🏆
                             1st Place</span>
-                        <h3 class="text-2xl font-bold text-primary mb-1">AI Prompt Master</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-1">Battle of AI</h3>
                         <p class="text-sm text-[#004081] font-semibold mb-4">THB 3,000 Prize</p>
                         <p class="text-sm text-gray-600 leading-relaxed">Showcased prompt engineering expertise and
                             creative application of AI models in a competitive setting.</p>
@@ -1232,18 +1232,6 @@
             awardState[id] = index;
         }
 
-        function autoSlideAward(id, total) {
-            let cur = awardState[id] !== undefined ? awardState[id] : 0;
-            let next = (cur + 1) % total;
-            let main = document.getElementById('main-' + id);
-            if (main) {
-                let thumbs = main.parentElement.nextElementSibling.querySelectorAll('img');
-                if (thumbs[next]) {
-                    switchImg(id, thumbs[next], next, total);
-                }
-            }
-        }
-
         // Activity carousel: opacity fade with arrow buttons
         const actState = {};
 
@@ -1297,20 +1285,6 @@
         // Init dots on page load
         buildDots('act-vp', 8);
         buildDots('act-mc', 4);
-
-        // Auto-slide every 5 seconds
-        setInterval(() => {
-            // Awards
-            autoSlideAward('c2c', 4);
-            autoSlideAward('p1', 5);
-            autoSlideAward('ai', 3);
-            autoSlideAward('r2m', 3);
-            autoSlideAward('cyber', 3);
-
-            // Activities
-            nextSlide('act-vp', 8);
-            nextSlide('act-mc', 4);
-        }, 5000);
 
         // ── Scroll Reveal Observer ──────────────────────────────
         const revealObserver = new IntersectionObserver((entries) => {
